@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="SnackAttack.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages1="clr-namespace:Snack_Attack.Pages"
+    xmlns:pages2="clr-namespace:SnackAttack.Pages"
+    Shell.FlyoutBehavior="Flyout">
+<FlyoutItem Title="Welcome">  
+    <ShellContent
+        Title=""
+        ContentTemplate="{DataTemplate pages2:MainPage}"
+        Route="MainPage"/>
+</FlyoutItem>   
+    
+   <TabBar>     
+    <ShellContent
+        Title="Home"
+        Icon="home.png"
+        ContentTemplate="{DataTemplate pages1:HomePage}"
+        Route="HomePage"/>
+        
+    <ShellContent
+        Title="Search"
+        Icon="search.png"
+        ContentTemplate="{DataTemplate pages1:AllItemsPage}"
+        Route="AllItemsPage"/>
+    
+ 
+    
+   </TabBar>    
+</Shell>

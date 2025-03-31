@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SnackAttack.Pages.MainPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="Beige">
+    
+    <Grid RowDefinitions="Auto, *, Auto"
+          Padding="15,25">
+        
+        <Label Grid.Row="0"
+               Text="Snack Attack"
+               FontSize="40"
+               HorizontalOptions="Center"
+               FontAttributes="Bold"/>
+        
+        <Image Grid.Row="1"
+               Source="fast_food.png"
+               HeightRequest="250"
+               WidthRequest="250"
+               Margin="40,60,50,150"/>
+    
+    <VerticalStackLayout Grid.Row="2"
+                         Spacing="10">
+        <Border StrokeShape="RoundRectangle 40"
+                StrokeThickness="0"
+                BackgroundColor="Goldenrod"
+                HeightRequest="50"
+                Margin="12,0,15,30">
+        
+        <Border.GestureRecognizers>
+               <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+        </Border.GestureRecognizers>              
+            
+               <HorizontalStackLayout HorizontalOptions="Center"
+                                      VerticalOptions="Center"
+                                      Spacing="10">
+            <Label Text="Get Started"
+                   VerticalOptions="Center"
+                   FontSize="15"/>
+            <Image Source="right_arrow.png"
+                   VerticalOptions="Center"
+                   HeightRequest="30"/>
+        </HorizontalStackLayout>    
+        </Border>
+    </VerticalStackLayout>    
+    </Grid>
+    
+
+
+</ContentPage>
+ 

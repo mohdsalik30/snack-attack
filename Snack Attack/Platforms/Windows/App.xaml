@@ -1,0 +1,8 @@
+﻿<maui:MauiWinUIApplication
+    x:Class="Snack_Attack.WinUI.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:maui="using:Microsoft.Maui"
+    xmlns:local="using:Snack_Attack.WinUI">
+
+</maui:MauiWinUIApplication>

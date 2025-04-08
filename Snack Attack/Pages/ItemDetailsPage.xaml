@@ -63,7 +63,7 @@
                        TextColor="Blue"/>
                 <Label Text="{Binding SnackItem.Description}"
                        FontSize="12"
-                       LineBreakMode="WordWrap"/>
+                       LineHeight="1.5"/>
                 </VerticalStackLayout>
             </VerticalStackLayout>
     </ScrollView>

@@ -24,14 +24,14 @@ public static class MauiProgram
 
         
         builder.Services.AddSingleton<SnackAttackService>();
-        builder.Services.AddSingleton<HomeViewModel>();
-        builder.Services.AddSingleton<HomePage>();
-        builder.Services.AddSingleton<AllItemsViewModel>();
-        builder.Services.AddSingleton<AllItemsPage>();
-        builder.Services.AddSingleton<ItemDetailsPage>();
-        builder.Services.AddSingleton<ItemDetailsViewModel>();
-        builder.Services.AddSingleton<ItemsCartPage>();
-        builder.Services.AddSingleton<ItemsCartViewModel>();
+        builder.Services.AddTransient<HomeViewModel>();
+        builder.Services.AddTransient<HomePage>();
+        builder.Services.AddTransient<AllItemsViewModel>();
+        builder.Services.AddTransient<AllItemsPage>();
+        builder.Services.AddTransient<ItemDetailsPage>();
+        builder.Services.AddTransient<ItemDetailsViewModel>();
+        builder.Services.AddTransient<ItemsCartPage>();
+        builder.Services.AddTransient<ItemsCartViewModel>();
 
 
 

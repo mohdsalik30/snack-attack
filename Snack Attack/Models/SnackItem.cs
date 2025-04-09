@@ -9,7 +9,8 @@ public partial class SnackItem : ObservableObject
     public double Price { get; set; }
     public  string Description { get; set; }
 
-    [ObservableProperty, NotifyPropertyChangedFor(nameof(Amount))]
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(Amount))]
     private int cartQuantity;
 
     public double Amount => CartQuantity * Price;

@@ -72,7 +72,7 @@
                       
                       <Label Grid.Row="0"
                              Grid.Column="0"
-                             Text="{Binding SnackItem.Price, StringFormat='£{0:N2}'}"
+                             Text="{Binding SnackItem.Amount, StringFormat=' Total :£{0:N2}'}"
                              FontSize="20"
                              VerticalOptions="Center"
                              TextColor="Green"/>
@@ -90,7 +90,7 @@
                                      CornerRadius="20"
                                      BackgroundColor="Gold"
                                      Padding="10"
-                                     Command="{Binding DecreaseQuantityCommand}"/>
+                                     Command="{Binding RemoveItemFromCartCommand}"/>
                              <Label Grid.Column="1"
                                     Text="{Binding SnackItem.CartQuantity}"
                                     FontSize="16"
@@ -102,8 +102,8 @@
                                      HeightRequest="40"
                                      CornerRadius="20"
                                      BackgroundColor="Gold"
-                                     Padding="10"
-                                     Command="{Binding IncreaseQuantityCommand}" />
+                                     Padding="12"
+                                     Command="{Binding AddItemToCartCommand}" />
                       </Grid>
                </Grid>
                <VerticalStackLayout Spacing="10"

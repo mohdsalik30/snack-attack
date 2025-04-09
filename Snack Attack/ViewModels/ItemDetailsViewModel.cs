@@ -30,7 +30,17 @@ public partial class ItemDetailsViewModel : ObservableObject
     public void RemoveItemFromCart(ItemsCartViewModel itemsCartViewModel)  
     {
         if (SnackItem is not null && SnackItem.CartQuantity > 0)
+        {
             SnackItem.CartQuantity--;
+            if (SnackItem.CartQuantity == 0)
+            {
+                _itemsCartViewModel.RemoveItemsFromCart(SnackItem.Name);
+            }
+            else
+            {
+                _itemsCartViewModel.UpdateItemQuantity(SnackItem);
+            }
+        }
     }
     [RelayCommand]
     private async Task ViewCart()

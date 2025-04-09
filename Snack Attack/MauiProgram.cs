@@ -31,7 +31,7 @@ public static class MauiProgram
         builder.Services.AddTransient<ItemDetailsPage>();
         builder.Services.AddTransient<ItemDetailsViewModel>();
         builder.Services.AddTransient<ItemsCartPage>();
-        builder.Services.AddTransient<ItemsCartViewModel>();
+        builder.Services.AddSingleton<ItemsCartViewModel>();
 
 
 

@@ -1,6 +1,7 @@
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Snack_Attack.Models;
+using Snack_Attack.Pages;
 
 namespace Snack_Attack.ViewModels;
 
@@ -33,7 +34,7 @@ public partial class ItemDetailsViewModel : ObservableObject
         if (SnackItem is not null && SnackItem.CartQuantity > 0)
         {
             
-            await Shell.Current.GoToAsync("ItemsCartPage");
+            await Shell.Current.GoToAsync(nameof(ItemsCartPage));
         }
         else
         {

@@ -34,7 +34,7 @@ public partial class ItemDetailsViewModel : ObservableObject
         if (SnackItem is not null && SnackItem.CartQuantity > 0)
         {
             
-            await Shell.Current.GoToAsync(nameof(ItemsCartPage));
+            await Shell.Current.GoToAsync(nameof(ItemsCartPage), true);
         }
         else
         {

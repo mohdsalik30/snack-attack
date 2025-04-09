@@ -52,7 +52,7 @@
 
                     <Label Text="{Binding SnackItem.Price, StringFormat='Price: £{0:F2}'}"
                            FontSize="16"
-                           TextColor="DarkGreen"/>
+                           TextColor="Green"/>
                 </VerticalStackLayout>
             </Grid>
             
@@ -65,6 +65,59 @@
                        FontSize="12"
                        LineHeight="1.5"/>
                 </VerticalStackLayout>
+               <BoxView HeightRequest="260" Color="White"/>
+               <Grid 
+                      RowDefinitions="Auto, Auto"
+                     ColumnDefinitions="*, *">
+                      
+                      <Label Grid.Row="0"
+                             Grid.Column="0"
+                             Text="{Binding SnackItem.Price, StringFormat='£{0:N2}'}"
+                             FontSize="20"
+                             VerticalOptions="Center"
+                             TextColor="Green"/>
+                      
+                      <Grid Grid.Row="0"
+                            Grid.Column="1"
+                            ColumnDefinitions="50, 40, 50"
+                            HorizontalOptions="End"
+                            VerticalOptions="Center">
+                             
+                             <ImageButton Grid.Column="0"
+                                     Source="minus.png"
+                                     WidthRequest="40"
+                                     HeightRequest="40"
+                                     CornerRadius="20"
+                                     BackgroundColor="Gold"
+                                     Padding="10"
+                                     Command="{Binding DecreaseQuantityCommand}"/>
+                             <Label Grid.Column="1"
+                                    Text="{Binding SnackItem.CartQuantity}"
+                                    FontSize="16"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"/>
+                             <ImageButton Grid.Column="2"
+                                    Source="plus.png"
+                                     WidthRequest="40"
+                                     HeightRequest="40"
+                                     CornerRadius="20"
+                                     BackgroundColor="Gold"
+                                     Padding="10"
+                                     Command="{Binding IncreaseQuantityCommand}" />
+                      </Grid>
+               </Grid>
+               <VerticalStackLayout Spacing="10"
+                                    Margin="0,10,0,0"
+                                    HorizontalOptions="Center">
+                      <Button Text="View Cart"
+                              FontSize="16"
+                              BackgroundColor="Gold"
+                              TextColor="Black"
+                              CornerRadius="21"
+                              Padding="20,10"
+                              WidthRequest="180"
+                              Command="{Binding ViewCartCommand}" />
+               </VerticalStackLayout>
             </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

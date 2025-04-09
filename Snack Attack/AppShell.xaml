@@ -30,7 +30,7 @@
     
     <ShellContent
         Title="Cart"
-        
+        Icon="cart.png"
         ContentTemplate="{DataTemplate pages1:ItemsCartPage}"
         Route="ItemsCartPage"/>
     

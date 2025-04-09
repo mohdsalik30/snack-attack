@@ -16,11 +16,11 @@ public partial class AppShell : Shell
     private void RegisterRoutes()
     {
         
-        Routing.RegisterRoute("MainPage", typeof(MainPage));
-        Routing.RegisterRoute("HomePage", typeof(HomePage));
-        Routing.RegisterRoute("AllItemsPage", typeof(AllItemsPage));
-        Routing.RegisterRoute("ItemDetailsPage", typeof(ItemDetailsPage));
-        Routing.RegisterRoute("ItemsCartPage", typeof(ItemsCartPage));
+        Routing.RegisterRoute(nameof(MainPage), typeof(MainPage));
+        Routing.RegisterRoute(nameof(HomePage), typeof(HomePage));
+        Routing.RegisterRoute(nameof(AllItemsPage), typeof(AllItemsPage));
+        Routing.RegisterRoute(nameof(ItemDetailsPage), typeof(ItemDetailsPage));
+        Routing.RegisterRoute(nameof(ItemsCartPage), typeof(ItemsCartPage));
         
     }
 }

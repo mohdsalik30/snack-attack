@@ -27,5 +27,22 @@ public partial class ItemDetailsViewModel : ObservableObject
         if (SnackItem is not null && SnackItem.CartQuantity > 0)
             SnackItem.CartQuantity--;
     }
+    [RelayCommand]
+    private async Task ViewCart()
+    {
+        if (SnackItem is not null && SnackItem.CartQuantity > 0)
+        {
+            
+            await Shell.Current.GoToAsync("ItemsCartPage");
+        }
+        else
+        {
+            
+            await Application.Current.MainPage.DisplayAlert(
+                "Cart is empty", 
+                "Please add at least one item to your cart before proceeding.", 
+                "OK");
+        }
+    } 
 
 }

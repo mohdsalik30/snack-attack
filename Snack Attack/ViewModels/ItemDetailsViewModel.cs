@@ -1,3 +1,4 @@
+using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Snack_Attack.Models;
 
@@ -9,8 +10,22 @@ public partial class ItemDetailsViewModel : ObservableObject
 {
     public ItemDetailsViewModel()
     {
-        
+
     }
-    [ObservableProperty]
-    private SnackItem snackItem;
-}  
+
+    [ObservableProperty] private SnackItem snackItem;
+
+    [RelayCommand]
+    private void AddItemToCart()
+    {
+        SnackItem.CartQuantity++;
+    }
+
+    [RelayCommand]
+    private void RemoveItemFromCart()
+    {
+        if (SnackItem is not null && SnackItem.CartQuantity > 0)
+            SnackItem.CartQuantity--;
+    }
+
+}

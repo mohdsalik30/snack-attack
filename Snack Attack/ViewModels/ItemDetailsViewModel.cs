@@ -9,8 +9,10 @@ namespace Snack_Attack.ViewModels;
 [QueryProperty(nameof(SnackItem), nameof(SnackItem))]
 public partial class ItemDetailsViewModel : ObservableObject
 {
-    public ItemDetailsViewModel()
+    private readonly ItemsCartViewModel _itemsCartViewModel;
+    public ItemDetailsViewModel(ItemsCartViewModel itemsCartViewModel)
     {
+        _itemsCartViewModel = itemsCartViewModel;
 
     }
 
@@ -19,11 +21,13 @@ public partial class ItemDetailsViewModel : ObservableObject
     [RelayCommand]
     private void AddItemToCart()
     {
+        if (SnackItem is not null)
         SnackItem.CartQuantity++;
+        _itemsCartViewModel.UpdateItemQuantity(SnackItem);
     }
 
     [RelayCommand]
-    private void RemoveItemFromCart()
+    public void RemoveItemFromCart(ItemsCartViewModel itemsCartViewModel)  
     {
         if (SnackItem is not null && SnackItem.CartQuantity > 0)
             SnackItem.CartQuantity--;

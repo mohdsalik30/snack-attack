@@ -5,8 +5,8 @@ namespace Snack_Attack.Pages;
 
 public partial class ItemsCartPage : ContentPage
 {
-    private readonly ItemsCartViewModel itemsCartViewModel;
-    public ItemsCartPage(ItemsCartViewModel _itemsCartViewModel)
+    private readonly ItemsCartViewModel _itemsCartViewModel;
+    public ItemsCartPage(ItemsCartViewModel itemsCartViewModel)
     {
         _itemsCartViewModel = itemsCartViewModel;
         InitializeComponent();

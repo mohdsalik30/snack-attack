@@ -12,6 +12,7 @@
             
             <BoxView HeightRequest="10" Color="White"/>
 
+           
             
             <Grid ColumnDefinitions="*,*">
                 <Label Grid.Column="0"

@@ -7,7 +7,9 @@ public partial class OrderPlacedPage : ContentPage
         InitializeComponent();
         AnimateElements();
     }
-
+    
+    
+// https://learn.microsoft.com/en-us/dotnet/maui/user-interface/animation/basic?view=net-maui-9.0
     private  async void AnimateElements()
     {
         await CheckImage.FadeTo(1, 200);

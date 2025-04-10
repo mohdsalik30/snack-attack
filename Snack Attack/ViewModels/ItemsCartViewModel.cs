@@ -3,6 +3,7 @@ using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Snack_Attack.Models;
+using Snack_Attack.Pages;
 
 namespace Snack_Attack.ViewModels;
 
@@ -31,6 +32,8 @@ public partial class ItemsCartViewModel : ObservableObject
         }
         else
         {
+            var newItem = snackItem.Clone();
+            newItem.CartQuantity = snackItem.CartQuantity;
             SnackItems.Add(snackItem);
         }
         RecalculateTotalAmount();
@@ -75,7 +78,7 @@ public partial class ItemsCartViewModel : ObservableObject
         SnackItems.Remove(item);
         RecalculateTotalAmount();
         
-            var snackBar = Snackbar.Make("Item removed from cart", async() =>
+            var snackBar = Snackbar.Make("Item removed from cart", async () =>
             {
                 removedItem.CartQuantity = 1;
                 if (SnackItems.All(i => i.Name != removedItem.Name))
@@ -87,6 +90,17 @@ public partial class ItemsCartViewModel : ObservableObject
              }, "Undo", TimeSpan.FromSeconds(3));
              await snackBar.Show();
     }
- 
-     
- }
+
+    [RelayCommand]
+    private async Task PlaceOrder()
+    {
+        if (SnackItems.Count == 0)
+        {
+            await Shell.Current.DisplayAlert("Empty Cart", "Your cart is empty", "OK");
+            return;
+        }
+        SnackItems.Clear();
+        RecalculateTotalAmount();
+        await Shell.Current.GoToAsync(nameof(OrderPlacedPage), animate: true);
+    }
+}

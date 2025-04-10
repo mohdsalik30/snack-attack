@@ -7,7 +7,7 @@ public partial class SnackItem : ObservableObject
     public required string Name { get; set; }
     public required string Image { get; set; }
     public double Price { get; set; }
-    public  string Description { get; set; }
+    public required string Description { get; set; }
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(Amount))]

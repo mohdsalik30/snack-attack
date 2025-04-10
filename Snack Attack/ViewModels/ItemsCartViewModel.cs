@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Snack_Attack.Models;
@@ -59,16 +60,33 @@ public partial class ItemsCartViewModel : ObservableObject
     }
 
     [RelayCommand]
-    public void DecreaseItemQuantity(SnackItem item)
+    public async Task DecreaseItemQuantity(SnackItem item)
     {
-        if (item is not null)
+        if (item is null) return;
+        
+        if (item.CartQuantity > 1)
         {
             item.CartQuantity--;
-            if (item.CartQuantity <= 0)
-            {
-                SnackItems.Remove(item);
-            }
             RecalculateTotalAmount();
+            return;
         }
+
+        var removedItem = item.Clone();
+        SnackItems.Remove(item);
+        RecalculateTotalAmount();
+        
+            var snackBar = Snackbar.Make("Item removed from cart", async() =>
+            {
+                removedItem.CartQuantity = 1;
+                if (SnackItems.All(i => i.Name != removedItem.Name))
+                {
+                    SnackItems.Add(removedItem);
+                }
+ 
+                 RecalculateTotalAmount();
+             }, "Undo", TimeSpan.FromSeconds(3));
+             await snackBar.Show();
     }
-}
+ 
+     
+ }

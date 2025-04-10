@@ -20,3 +20,6 @@ After placing the order, user can see a notification on the screen with a beauti
 There is a tab bar in the app where user can move around the app easily and fast.
 
 There are flyouts where user can learn about us and also find to contact the customer care, either from email or mobile number.
+
+reference for the png images:
+https://www.flaticon.com/free-icon/logout_660350?term=exit&page=1&position=4&origin=search&related_id=660350

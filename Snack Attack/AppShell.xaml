@@ -6,14 +6,12 @@
     xmlns:pages1="clr-namespace:Snack_Attack.Pages"
     xmlns:pages="clr-namespace:SnackAttack.Pages"
     Shell.FlyoutBehavior="Flyout">
-    <Shell.FlyoutHeader>
-        <VerticalStackLayout Padding="15" BackgroundColor="White">
-            <Label Text="Snack Attack"
-                   FontSize="15"
-                   FontAttributes="Bold"
-                   TextColor="Green"/>
-        </VerticalStackLayout>
-    </Shell.FlyoutHeader>
+    
+    <ShellContent
+        Title="Exit App"
+        Icon="exit.png"
+        ContentTemplate="{DataTemplate pages:MainPage}"
+        Route="MainPage"/>
    <TabBar>     
     <ShellContent
         Title="Home"
@@ -42,11 +40,4 @@
         Text="About Us"
         IconImageSource="aboutus.png"
         Command="{Binding NavigateToAboutUsCommand}"/>
-    <ShellContent
-        Title="Exit App"
-        Icon="exit.png"
-        ContentTemplate="{DataTemplate pages:MainPage}"
-        Route="MainPage"/>
-
-
 </Shell>

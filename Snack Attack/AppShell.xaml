@@ -5,15 +5,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:pages1="clr-namespace:Snack_Attack.Pages"
     xmlns:pages="clr-namespace:SnackAttack.Pages"
-
     Shell.FlyoutBehavior="Flyout">
-<FlyoutItem Title="Welcome">
-      
+    
+
+    
     <ShellContent
         Title=""
         ContentTemplate="{DataTemplate pages:MainPage}"
         Route="MainPage"/>
-</FlyoutItem>   
+    
+  
     
    <TabBar>     
     <ShellContent
@@ -33,8 +34,10 @@
         Icon="cart.png"
         ContentTemplate="{DataTemplate pages1:ItemsCartPage}"
         Route="ItemsCartPage"/>
-    
- 
-    
    </TabBar>    
+    <MenuItem
+        Text="Contact Us"
+        IconImageSource="contact.png"
+        Command="{Binding NavigateToContactUsCommand}" />
+
 </Shell>

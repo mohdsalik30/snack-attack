@@ -5,6 +5,11 @@ public partial class OrderPlacedPage : ContentPage
     public OrderPlacedPage()
     {
         InitializeComponent();
+        Shell.SetBackButtonBehavior(this, new BackButtonBehavior
+        {
+            IsEnabled = false,
+            IsVisible = false
+        });
         AnimateElements();
     }
     
@@ -25,7 +30,11 @@ public partial class OrderPlacedPage : ContentPage
     }
     private async void ReturnHomeButton_Clicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync($"//{nameof(HomePage)}", animate: true); 
+        await Shell.Current.GoToAsync($"//HomePage",  true); 
+    }
+    protected override bool OnBackButtonPressed()
+    {
+        return true; 
     }
 
 }

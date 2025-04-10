@@ -24,6 +24,8 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(ItemsCartPage), typeof(ItemsCartPage));
         Routing.RegisterRoute(nameof(OrderPlacedPage), typeof(OrderPlacedPage));
         Routing.RegisterRoute(nameof(ContactUsPage), typeof(ContactUsPage));
+        Routing.RegisterRoute(nameof(AboutUsPage), typeof(AboutUsPage));
+         
     }
 
     public ICommand NavigateToContactUsCommand => new Command(async () =>
@@ -31,6 +33,11 @@ public partial class AppShell : Shell
     {
         Shell.Current.FlyoutIsPresented = false;
         await Shell.Current.GoToAsync(nameof(ContactUsPage));
+    });
+    public ICommand NavigateToAboutUsCommand => new Command(async () =>
+    {
+        Shell.Current.FlyoutIsPresented = false;
+        await Shell.Current.GoToAsync(nameof(AboutUsPage));
     });
     
 }

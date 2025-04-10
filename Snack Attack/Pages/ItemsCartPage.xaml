@@ -9,11 +9,17 @@
              xmlns:controls="clr-namespace:Microsoft.Maui.Controls;assembly=Microsoft.Maui.Controls"
              x:DataType="vm:ItemsCartViewModel"
              Title="Cart">
-   
+<Grid>   
 <ScrollView>
     <VerticalStackLayout Padding="10" Spacing="10">
-    <CollectionView ItemsSource="{Binding SnackItems}"
-                    Margin="10,10,10,20">
+        <Label Text="Your cart is empty"
+               FontSize="18"
+               FontAttributes="Bold"
+               TextColor="Gray"
+               HorizontalOptions="Center"
+               IsVisible="{Binding IsCartEmpty}" />
+        <CollectionView ItemsSource="{Binding SnackItems}"
+                        Margin="10,10,10,20">
         <CollectionView.ItemsLayout>
             <LinearItemsLayout Orientation="Vertical" ItemSpacing="15" />
         </CollectionView.ItemsLayout>
@@ -75,12 +81,34 @@
                                              Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ItemsCartViewModel}}, Path=IncreaseItemQuantityCommand}"
                                              CommandParameter="{Binding .}" />
                             </HorizontalStackLayout>
-                        
                         </Grid> 
                         </Frame>                         
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
+        <StackLayout Grid.Row="1"
+                     BackgroundColor="White"
+                     Padding="10"
+                     Spacing="10"
+                     VerticalOptions="End">
+        <Label Text="{Binding TotalAmount, StringFormat='Total: £{0:F2}'}"
+        FontSize="20"
+        FontAttributes="Bold"
+        TextColor="Green"
+        HorizontalOptions="Center" />
+        
+        <Button Text="Place Order"
+                Command="{Binding PlaceOrderCommand}"
+                BackgroundColor="Gold"
+                TextColor="Black"
+                FontAttributes="Bold"
+                CornerRadius="20"
+                Padding="15,10"
+                HorizontalOptions="Center"
+                WidthRequest="200"/>
+        </StackLayout>
         </VerticalStackLayout>
-</ScrollView>    
+</ScrollView>
+    
+    </Grid>
 </ContentPage>

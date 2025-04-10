@@ -11,9 +11,15 @@ public partial class ItemsCartViewModel : ObservableObject
 
     [ObservableProperty]
     private double totalAmount;
+    
+    [ObservableProperty]
+    private bool isCartEmpty;
 
-    private void RecalculateTotalAmount() => TotalAmount = SnackItems.Sum(i => i.Amount);
-
+    private void RecalculateTotalAmount()
+    {
+        TotalAmount = SnackItems.Sum(i => i.Amount);
+        IsCartEmpty = SnackItems.Count == 0;
+    }
     [RelayCommand]
     public void UpdateItemQuantity(SnackItem snackItem)
     {
@@ -40,23 +46,8 @@ public partial class ItemsCartViewModel : ObservableObject
         }
     }
 
-    [RelayCommand]
-    public async Task ClearCart()
-    {
-        if (await Shell.Current.DisplayAlert("Clear Cart", "Are you sure you want to clear the cart?", "Yes", "No"))
-        {
-            SnackItems.Clear();
-            RecalculateTotalAmount();
-        }
-    }
 
-    [RelayCommand]
-    private async Task PlaceOrder()
-    {
-        await Shell.Current.DisplayAlert("Success", "Your order has been placed!", "OK");
-        SnackItems.Clear();
-        RecalculateTotalAmount();
-    }
+    
     [RelayCommand]
     public void IncreaseItemQuantity(SnackItem item)
     {

@@ -6,7 +6,14 @@
     xmlns:pages1="clr-namespace:Snack_Attack.Pages"
     xmlns:pages="clr-namespace:SnackAttack.Pages"
     Shell.FlyoutBehavior="Flyout">
-    
+    <Shell.FlyoutHeader>
+        <VerticalStackLayout Padding="15" BackgroundColor="White">
+            <Label Text="Snack Attack"
+                   FontSize="15"
+                   FontAttributes="Bold"
+                   TextColor="Green"/>
+        </VerticalStackLayout>
+    </Shell.FlyoutHeader>
    <TabBar>     
     <ShellContent
         Title="Home"

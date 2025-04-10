@@ -46,8 +46,6 @@ public partial class ItemsCartViewModel : ObservableObject
             RecalculateTotalAmount();
         }
     }
-
-
     
     [RelayCommand]
     public void IncreaseItemQuantity(SnackItem item)
@@ -70,6 +68,8 @@ public partial class ItemsCartViewModel : ObservableObject
             RecalculateTotalAmount();
             return;
         }
+
+        item.CartQuantity = 0;
 
         var removedItem = item.Clone();
         SnackItems.Remove(item);

@@ -1,3 +1,4 @@
+<img width="1179" height="2556" alt="Simulator Screenshot - iPhone 16 - 2026-07-13 at 15 12 30" src="https://github.com/user-attachments/assets/f2cbfc31-6656-4442-8c7b-6c107eb84f54" />
 # Mohammad-Salik-Malik
 
 Background and Motivation:
